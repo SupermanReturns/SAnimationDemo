@@ -46,24 +46,28 @@
 -(void)initUI{
     _firstView=[[UIView alloc]init];
     _firstView.frame=CGRectMake(165, 100, 45, 45);
+//    _firstView.frame=CGRectMake(165, 174, 45, 45);
+    CGRect frame=_firstView.frame;
     [self.view addSubview:_firstView];
-    UIImageView *imageVIew = [self createImageViewWithFrame:_firstView.frame tag:kTAG_BASE_VALUE named:@"pic_ceshi2_biaoqian"];
+    UIImageView *imageVIew = [self createImageViewWithFrame:frame tag:kTAG_BASE_VALUE named:@"pic_ceshi2_biaoqian.png"];
     imageVIew.layer.anchorPoint =CGPointMake(28.5/ 45.0, 16/ 45.0);
-    imageVIew.frame=_firstView.frame;
+    imageVIew.frame=frame;
     [_firstView addSubview:imageVIew];
     
-    imageVIew=[self createImageViewWithFrame:_firstView.frame tag:kTAG_BASE_VALUE+1 named:@"pic_ceshi2_xingxing1"];
-    [self.firstView addSubview:imageVIew];
-    imageVIew=[self createImageViewWithFrame:_firstView.frame tag:kTAG_BASE_VALUE+2 named:@"pic_ceshi2_xingxing2"];
-    [self.firstView addSubview:imageVIew];
+    imageVIew=[self createImageViewWithFrame:frame tag:kTAG_BASE_VALUE+1 named:@"pic_ceshi2_xingxing1.png"];
+    [_firstView addSubview:imageVIew];
+    imageVIew=[self createImageViewWithFrame:frame tag:kTAG_BASE_VALUE+2 named:@"pic_ceshi2_xingxing2.png"];
+    [_firstView addSubview:imageVIew];
     
     
     
     _secondView=[[UIView alloc]init];
     _secondView.frame=CGRectMake(165,150 , 45, 45);
+
     [self.view addSubview:_secondView];
-    UIImageView *ima=[self createImageViewWithFrame:_secondView.frame tag:kTAG_BASE_VALUE named:@"pic_ceshi1_biaoqian"];
-    [_secondView addSubview:ima];
+//    UIImageView *ima=[self createImageViewWithFrame:_secondView.frame tag:kTAG_BASE_VALUE named:@"pic_ceshi1_biaoqian"];
+    imageVIew=[self createImageViewWithFrame:_secondView.frame tag:kTAG_BASE_VALUE named:@"pic_ceshi1_biaoqian"];
+    [_secondView addSubview:imageVIew];
     
     CGRect frameSec = CGRectMake(45 - 18, 0, 18, 19.5);
     UIView *contentView=[[UIView alloc]init];
@@ -71,33 +75,37 @@
     contentView.frame = frameSec;
     contentView.tag =kTAG_BASE_VALUE + 10;
     [self.secondView addSubview:contentView];
-    ima = [self createImageViewWithFrame:contentView.bounds tag:kTAG_BASE_VALUE named:@"pic_ceshi1_qipao(1)"];
-    [contentView addSubview:ima];
-    ima=[self createImageViewWithFrame:contentView.bounds tag:kTAG_BASE_VALUE+1 named:@"pic_ceshi1_zi"];
-    ima.layer.anchorPoint =CGPointMake(0, 1);
-    ima.frame = contentView.bounds;
-    [contentView addSubview:ima];
+    imageVIew = [self createImageViewWithFrame:contentView.bounds tag:kTAG_BASE_VALUE named:@"pic_ceshi1_qipao(1)"];
+    [contentView addSubview:imageVIew];
+    imageVIew=[self createImageViewWithFrame:contentView.bounds tag:kTAG_BASE_VALUE+1 named:@"pic_ceshi1_zi"];
+    imageVIew.layer.anchorPoint =CGPointMake(0, 1);
+    imageVIew.frame = contentView.bounds;
+    [contentView addSubview:imageVIew];
     
     
     _threeView=[[UIView alloc]init];
     _threeView.frame=CGRectMake(165, 200, 45, 45);
+//    _threeView.frame=CGRectMake(165, 381, 45, 45);
+
     [self.view addSubview:_threeView];
-    UIImageView *ima3=[self createImageViewWithFrame:_threeView.frame tag:kTAG_BASE_VALUE named:@"pic_ceshi3_biaoqian"];
-    ima3.layer.anchorPoint = CGPointMake(0.5, 12/ 45.0);
-    ima3.frame=_threeView.frame;
-    [_threeView addSubview:ima3];
+    imageVIew=[self createImageViewWithFrame:_threeView.frame tag:kTAG_BASE_VALUE named:@"pic_ceshi3_biaoqian"];
+    imageVIew.layer.anchorPoint = CGPointMake(0.5, 12/ 45.0);
+    imageVIew.frame=_threeView.frame;
+    [_threeView addSubview:imageVIew];
     
     
     _fourView=[[UIView alloc]init];
     _fourView.frame=CGRectMake(165, 250,45, 45);
+//    _fourView.frame=CGRectMake(165, 486,45, 45);
+
     [self.view addSubview:_fourView];
 
-    UIImageView *ima4=[self createImageViewWithFrame:_fourView.frame tag:kTAG_BASE_VALUE named:@"pic_ceshi2_biaoqian"];
-    [_fourView addSubview:ima4];
-    ima4 = [self createImageViewWithFrame:_fourView.frame tag:kTAG_BASE_VALUE+1 named:@"pic_ceshi2_xingxing1"];
-    [self.fourView addSubview:ima4];
-    ima4= [self createImageViewWithFrame:_fourView.frame tag:kTAG_BASE_VALUE+2 named:@"pic_ceshi2_xingxing2"];
-    [self.fourView addSubview:ima4];
+    imageVIew=[self createImageViewWithFrame:_fourView.frame tag:kTAG_BASE_VALUE named:@"pic_ceshi2_biaoqian"];
+    [_fourView addSubview:imageVIew];
+    imageVIew = [self createImageViewWithFrame:_fourView.frame tag:kTAG_BASE_VALUE+1 named:@"pic_ceshi2_xingxing1"];
+    [self.fourView addSubview:imageVIew];
+    imageVIew= [self createImageViewWithFrame:_fourView.frame tag:kTAG_BASE_VALUE+2 named:@"pic_ceshi2_xingxing2"];
+    [self.fourView addSubview:imageVIew];
 }
 
 
@@ -139,7 +147,6 @@
     toValue=[NSNumber numberWithFloat:-M_PI/30.0];
     CAAnimation *ziAnimation=[self createKAnimationWithKeyPath:rAnimationKey fromValue:fromValue toValue:toValue];
     [imageView.layer addAnimation:ziAnimation forKey:nil];
-    
 }
 -(void)startAnimationForThirdView{
     id fromValue=[NSNumber numberWithFloat:-M_PI/10.0];
